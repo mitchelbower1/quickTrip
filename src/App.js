@@ -18,6 +18,7 @@ function SetBudgetForm() {
       <form className="form">
         <label>Set a budget</label>
         <input
+          className={haveSpent > budget ? "negative" : ""}
           type="text"
           value={budget}
           onChange={(e) => setBudget(Number(e.target.value))}
@@ -29,8 +30,14 @@ function SetBudgetForm() {
           value={haveSpent}
           onChange={(e) => setHaveSpent(Number(e.target.value))}
         />
+        <button>Update</button>
         <label>remainder</label>
-        <input type="text" disabled value={remainder} />
+        <input
+          type="text"
+          disabled
+          value={remainder}
+          className={haveSpent > budget ? "negative" : "green"}
+        />
       </form>
     </div>
   );

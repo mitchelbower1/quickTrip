@@ -30,13 +30,12 @@ button {
   border-radius: 5px;
 }
 
-.display-budget-form {
-  display: flex;
-  flex-direction: column;
-  border: solid, black;
-  margin-top: 30px;
-  padding: 20px;
-  width: 60vw;
+.negative {
+  color: red;
+}
+
+.green {
+  color: green;
 }
 
 .display-form {
