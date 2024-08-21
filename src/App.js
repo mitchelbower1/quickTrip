@@ -1,30 +1,11 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import TitleBar from "./components/TitleBar";
+import SetBudgetForm from "./components/SetBudgetForm";
 
 export default function App() {
-  return (
-    <div className="main-app">
-      <TitleBar />
-      <SetBudgetForm />
-    </div>
-  );
-}
-
-function TitleBar() {
-  return (
-    <div className="header">
-      <h1>Create a budget for your trip!</h1>
-    </div>
-  );
-}
-
-function SetBudgetForm() {
   const [budget, setBudget] = useState("");
   const [haveSpent, setHaveSpent] = useState("");
   const [remainder, setRemainder] = useState("");
-
-  // function handleSetbudget() {
-  //   setBudget(())
-  // }
 
   const handleSetRemainder = (e) => {
     e.preventDefault();
@@ -32,34 +13,17 @@ function SetBudgetForm() {
     setRemainder(budget - haveSpent);
   };
 
-  const updateRemainder = () => {};
-
   return (
-    <div className="set-budget-form">
-      <form className="form">
-        <label>Set budget</label>
-        <input
-          className={haveSpent > budget ? "negative" : ""}
-          type="text"
-          value={budget}
-          onChange={(e) => setBudget(Number(e.target.value))}
-        />
-        <button onClick={handleSetRemainder}>Set</button>
-        <label>How much have you spent?</label>
-        <input
-          type="text"
-          value={haveSpent}
-          onChange={(e) => setHaveSpent(Number(e.target.value))}
-        />
-        <button>Update</button>
-        <label>remainder</label>
-        <input
-          type="text"
-          disabled
-          value={remainder}
-          className={haveSpent > budget ? "negative" : "green"}
-        />
-      </form>
+    <div className="main-app">
+      <TitleBar />
+      <SetBudgetForm
+        budget={budget}
+        haveSpent={haveSpent}
+        remainder={remainder}
+        onSetRemainder={handleSetRemainder}
+        setBudget={setBudget}
+        setHaveSpent={setHaveSpent}
+      />
     </div>
   );
 }
