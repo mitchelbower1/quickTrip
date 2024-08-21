@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function App() {
   return (
-    <div>
+    <div className="main-app">
+      <TitleBar />
       <SetBudgetForm />
+    </div>
+  );
+}
+
+function TitleBar() {
+  return (
+    <div className="header">
+      <h1>Create a budget for your trip!</h1>
     </div>
   );
 }
@@ -13,10 +22,17 @@ function SetBudgetForm() {
   const [haveSpent, setHaveSpent] = useState("");
   const [remainder, setRemainder] = useState("");
 
-  function handleSetRemainder(e) {
+  // function handleSetbudget() {
+  //   setBudget(())
+  // }
+
+  const handleSetRemainder = (e) => {
     e.preventDefault();
+    if (!budget) return;
     setRemainder(budget - haveSpent);
-  }
+  };
+
+  const updateRemainder = () => {};
 
   return (
     <div className="set-budget-form">
