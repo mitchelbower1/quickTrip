@@ -1,27 +1,30 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import TitleBar from "./components/TitleBar";
 import SetBudgetForm from "./components/SetBudgetForm";
 
 export default function App() {
   const [budget, setBudget] = useState("");
-  const [haveSpent, setHaveSpent] = useState("");
-  const [remainder, setRemainder] = useState("");
+  const [haveSpent, setHaveSpent] = useState([]);
 
-  const handleSetRemainder = (e) => {
+  const remainder = useMemo(() => {
+    const totalSpent = haveSpent.reduce((acc, cur) => acc + cur, 0);
+    return budget - totalSpent;
+  }, [budget, haveSpent]);
+
+  const handleSetBudget = (e) => {
     e.preventDefault();
-    if (!budget) return;
-    setRemainder(budget - haveSpent);
+    setBudget(e.currentTarget.form.budget.value);
   };
 
   return (
     <div className="main-app">
+      <p>Initial budget: {budget ?? ""}</p>
+      <p>Remainder: {remainder}</p>
       <TitleBar />
       <SetBudgetForm
         budget={budget}
         haveSpent={haveSpent}
-        remainder={remainder}
-        onSetRemainder={handleSetRemainder}
-        setBudget={setBudget}
+        onSetBudget={handleSetBudget}
         setHaveSpent={setHaveSpent}
       />
     </div>

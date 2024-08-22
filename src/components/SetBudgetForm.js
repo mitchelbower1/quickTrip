@@ -1,11 +1,4 @@
-const SetBudgetForm = ({
-  budget,
-  haveSpent,
-  remainder,
-  handleSetRemainder,
-  setHaveSpent,
-  setBudget,
-}) => {
+const SetBudgetForm = ({ budget, haveSpent, onSetBudget, setHaveSpent }) => {
   return (
     <div className="set-budget-form">
       <form className="form">
@@ -13,12 +6,9 @@ const SetBudgetForm = ({
         <input
           className={haveSpent > budget ? "negative" : ""}
           type="text"
-          value={budget}
-          onChange={(e) => setBudget(Number(e.target.value))}
+          name="budget"
         />
-        <button onClick={handleSetRemainder} type="submit">
-          Set
-        </button>
+        <button onClick={onSetBudget}>Set</button>
         <label>How much have you spent?</label>
         <input
           type="text"
@@ -30,7 +20,6 @@ const SetBudgetForm = ({
         <input
           type="text"
           disabled
-          value={remainder}
           className={haveSpent > budget ? "negative" : "green"}
         />
       </form>
