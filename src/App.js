@@ -3,17 +3,25 @@ import TitleBar from "./components/TitleBar";
 import SetBudgetForm from "./components/SetBudgetForm";
 
 export default function App() {
-  const [budget, setBudget] = useState("");
+  const [budget, setBudget] = useState(0);
   const [haveSpent, setHaveSpent] = useState([]);
 
   const remainder = useMemo(() => {
-    const totalSpent = haveSpent.reduce((acc, cur) => acc + cur, 0);
+    const totalSpent = haveSpent.reduce(
+      (acc, cur) => Number(acc) + Number(cur),
+      0
+    );
     return budget - totalSpent;
   }, [budget, haveSpent]);
 
   const handleSetBudget = (e) => {
     e.preventDefault();
-    setBudget(e.currentTarget.form.budget.value);
+    setBudget(Number(e.currentTarget.form.budget.value));
+  };
+
+  const handleSetHaveSpent = (e) => {
+    e.preventDefault();
+    setHaveSpent(haveSpent.concat([Number(e.currentTarget.form.spent.value)]));
   };
 
   return (
@@ -25,7 +33,7 @@ export default function App() {
         budget={budget}
         haveSpent={haveSpent}
         onSetBudget={handleSetBudget}
-        setHaveSpent={setHaveSpent}
+        onSetHaveSpent={handleSetHaveSpent}
       />
     </div>
   );
