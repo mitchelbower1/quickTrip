@@ -1,3 +1,3 @@
-function DisplayBudget({}) {}
+function DisplayBudget() {}
 
 export default DisplayBudget;

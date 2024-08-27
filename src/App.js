@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+
 import TitleBar from "./components/TitleBar";
 import SetBudgetForm from "./components/SetBudgetForm";
 
@@ -31,6 +32,7 @@ export default function App() {
       <TitleBar />
       <SetBudgetForm
         budget={budget}
+        remainder={remainder}
         haveSpent={haveSpent}
         onSetBudget={handleSetBudget}
         onSetHaveSpent={handleSetHaveSpent}

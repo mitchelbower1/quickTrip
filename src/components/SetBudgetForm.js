@@ -1,10 +1,19 @@
-const SetBudgetForm = ({ budget, haveSpent, onSetBudget, onSetHaveSpent }) => {
+import React from "react";
+
+const SetBudgetForm = ({
+  remainder,
+  budget,
+  haveSpent,
+  onSetBudget,
+  onSetHaveSpent,
+}) => {
   return (
     <div className="set-budget-form">
       <form className="form">
         <label>Set budget</label>
         <input
-          className={haveSpent > budget ? "negative" : ""}
+          className={haveSpent > budget ? "negative" : "green"}
+          value={budget}
           type="number"
           name="budget"
         />
@@ -14,9 +23,10 @@ const SetBudgetForm = ({ budget, haveSpent, onSetBudget, onSetHaveSpent }) => {
         <button onClick={onSetHaveSpent}>Update</button>
         <label>remainder</label>
         <input
-          type="tenuxt"
+          type="text"
+          value={remainder}
           disabled
-          className={onSetHaveSpent > budget ? "negative" : "green"}
+          className={haveSpent > budget ? "negative" : "green"}
         />
       </form>
     </div>
