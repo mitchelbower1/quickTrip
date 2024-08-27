@@ -13,13 +13,14 @@ const SetBudgetForm = ({
         <label>Set budget</label>
         <input
           className={haveSpent > budget ? "negative" : "green"}
-          value={budget}
           type="number"
           name="budget"
         />
         <button onClick={onSetBudget}>Set</button>
         <label>How much have you spent?</label>
-        <input type="number" name="spent" />
+        <input type="number" name="itemCost" />
+        <label>what did you spend it on? </label>
+        <input type="text" name="itemName" />
         <button onClick={onSetHaveSpent}>Update</button>
         <label>remainder</label>
         <input
