@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "kiona";
+  src: url("E:\Trip-budget\trip-budget\src\Kiona-Regular.ttf");
+}
+
+html {
+  font-family: "kiona";
+}
+
 body {
   height: 100vh;
   width: 100vw;
@@ -11,7 +20,7 @@ body {
 
 .main-app {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -23,15 +32,22 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #23da39;
-  margin-bottom: 120px;
+  margin-top: 50px;
   width: 100vw;
-  position: fixed;
   top: 0;
 }
 
 h1 {
-  font-weight: 900;
+  font-family: "kiona";
+  font-size: 55px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 85vw;
 }
 
 .set-budget-form {
@@ -42,26 +58,68 @@ h1 {
   justify-content: center;
   border: solid, 2px, black;
   border-radius: 5px;
-  padding: 20px;
-  width: 40vw;
-  height: 40vh;
-  box-shadow: 10px 9px 2.5px 3px rgba(0, 0, 0, 0.705);
+  padding: 10px;
+  width: 70vw;
+  height: 415px;
+  background-color: #57d156;
 }
 
 .form {
-  display: grid;
+  display: flex;
   justify-content: left;
   align-items: center;
   flex-direction: column;
 }
 
-button {
-  margin: 10px;
-  padding: 5px;
-  border-radius: 5px;
+label {
+  padding: 10px;
+  display: flex;
+  justify-content: left;
+  font-weight: bold;
 }
 
-.negative {
+input {
+  padding: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 300px;
+  font-family: "kiona";
+}
+
+.spent-input {
+  margin-bottom: 10%;
+}
+
+.set-button {
+  margin-bottom: 70px;
+  margin-top: 10px;
+  width: 220px;
+}
+
+.update-button {
+  margin-top: 10px;
+  width: 220px;
+}
+
+button:hover {
+  background-color: #9ef1a7;
+  transition: background-color 0.5s;
+}
+
+button {
+  font-family: "kiona";
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.5s;
+}
+
+.remainder-field {
+  font-weight: bolder;
+
+  background-color: rgb(248, 242, 234);
+}
+
+.red {
   color: red;
 }
 
@@ -69,14 +127,38 @@ button {
   color: green;
 }
 
-.display-form {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+.item-list {
+  width: 30%;
+  overflow-y: auto;
+  margin-top: 10px;
+  max-height: 120px;
+  border: solid, 2px, black;
+  border-radius: 5px;
 }
 
-label {
-  padding: 10px;
+.items:hover {
+  background-color: #9ef1a7;
+  transition: background-color 0.5s;
+}
+
+.items {
+  background-color: #57d156;
+  transition: background-color 0.5s;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 7px;
+  margin-top: 12px;
+  margin-left: 5px;
+}
+
+.close {
+  font-weight: bolder;
+  font-size: x-large;
+  background: none;
+  border: none;
 }
 
 .hidden {

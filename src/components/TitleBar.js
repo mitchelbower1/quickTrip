@@ -3,7 +3,7 @@ import React from "react";
 function TitleBar() {
   return (
     <div className="header">
-      <h1>Create a budget for your trip!</h1>
+      <h1>Travelbudget</h1>
     </div>
   );
 }
