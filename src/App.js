@@ -57,7 +57,7 @@ function ItemList({ haveSpent }) {
       {haveSpent.map((item, index) => {
         return (
           <div className="items" key={item.name + index}>
-            <p>
+            <p className="p">
               {item.name}: ${item.cost}
             </p>
             <button className="close">&times;</button>
