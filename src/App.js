@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
-
 import TitleBar from "./components/TitleBar";
 import SetBudgetForm from "./components/SetBudgetForm";
+// import "./fonts.css";
 
 export default function App() {
   const [budget, setBudget] = useState(0);
