@@ -32,7 +32,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
   width: 100vw;
   top: 0;
 }
@@ -40,7 +39,8 @@ body {
 h1 {
   font-family: "kiona";
   font-size: 55px;
-  margin: 10px;
+  margin-top: 0px;
+  margin-bottom: 30px;
 }
 
 .main-content {
@@ -57,12 +57,12 @@ h1 {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  border: solid, 2px, black;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
-  width: 60vw;
-  height: 555px;
+  width: 50vw;
+  height: 515px;
   background-color: #57d156;
+  filter: drop-shadow(5px 5px 25px #000000);
 }
 
 .form {
@@ -100,13 +100,19 @@ input {
 
 .set-button {
   margin-bottom: 70px;
+  padding: 10px;
+  border-radius: 20px;
   margin-top: 10px;
-  width: 220px;
+  width: 120px;
+  border: none;
 }
 
 .update-button {
   margin-top: 10px;
   width: 220px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
 }
 
 button:hover {
@@ -118,13 +124,9 @@ button {
   font-family: "kiona";
   padding: 5px;
   border-radius: 5px;
-  transition: background-color 0.5s;
-}
-
-.remainder-field {
+  font-size: 16px;
   font-weight: bolder;
-
-  background-color: rgb(248, 242, 234);
+  transition: background-color 0.5s;
 }
 
 .red {
@@ -139,19 +141,13 @@ button {
   width: 30%;
   overflow-y: auto;
   margin-top: 10px;
-  max-height: 120px;
-  border: solid, 2px, black;
-  border-radius: 5px;
-}
-
-.items:hover {
-  background-color: #9ef1a7;
-  transition: background-color 0.5s;
+  max-height: 180px;
+  scrollbar-gutter: stable;
+  border-radius: 10px;
 }
 
 .items {
   background-color: #57d156;
-  transition: background-color 0.5s;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -162,11 +158,17 @@ button {
   margin-left: 5px;
 }
 
+/* .P {
+  font
+} */
+
 .close {
   font-weight: bolder;
-  font-size: x-large;
+  font-size: 30px;
   background: none;
   border: none;
+  padding: 5px;
+  position: static;
 }
 
 .hidden {

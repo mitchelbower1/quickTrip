@@ -28,10 +28,16 @@ export default function App() {
         name: e.currentTarget.form.itemName.value,
       };
 
+      if (!newItem.cost || !newItem.name) return;
+
       setHaveSpent(haveSpent.concat([newItem]));
     },
     [haveSpent]
   );
+
+  function deleteItem() {
+    return haveSpent + budget;
+  }
 
   return (
     <div className="main-app">
@@ -44,13 +50,13 @@ export default function App() {
           onSetBudget={handleSetBudget}
           onSetHaveSpent={handleSetHaveSpent}
         />
-        <ItemList haveSpent={haveSpent} />
+        <ItemList haveSpent={haveSpent} deleteItem={deleteItem} />
       </div>
     </div>
   );
 }
 
-function ItemList({ haveSpent }) {
+function ItemList({ haveSpent, deleteItem }) {
   return (
     <div className="item-list">
       <br />
@@ -60,7 +66,9 @@ function ItemList({ haveSpent }) {
             <p className="p">
               {item.name}: ${item.cost}
             </p>
-            <button className="close">&times;</button>
+            <button onClick={deleteItem} className="close">
+              &times;
+            </button>
           </div>
         );
       })}
