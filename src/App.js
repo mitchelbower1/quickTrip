@@ -18,6 +18,8 @@ export default function App() {
   const handleSetBudget = (e) => {
     e.preventDefault();
     setBudget(Number(e.currentTarget.form.budget.value).toFixed(2));
+
+    if (!e.currentTarget.form.budget.value) return;
   };
 
   const handleSetHaveSpent = useCallback(
@@ -28,7 +30,11 @@ export default function App() {
         name: e.currentTarget.form.itemName.value,
       };
 
-      if (!newItem.cost || !newItem.name) return;
+      if (
+        !e.currentTarget.form.itemCost.value ||
+        !e.currentTarget.form.itemName.value
+      )
+        return;
 
       setHaveSpent(haveSpent.concat([newItem]));
     },

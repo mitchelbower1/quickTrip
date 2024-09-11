@@ -158,10 +158,6 @@ button {
   margin-left: 5px;
 }
 
-/* .P {
-  font
-} */
-
 .close {
   font-weight: bolder;
   font-size: 30px;
@@ -169,6 +165,10 @@ button {
   border: none;
   padding: 5px;
   position: static;
+}
+
+#hidden {
+  display: none;
 }
 
 .hidden {
