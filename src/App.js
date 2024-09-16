@@ -17,33 +17,30 @@ export default function App() {
 
   const handleSetBudget = (e) => {
     e.preventDefault();
-    setBudget(Number(e.currentTarget.form.budget.value).toFixed(2));
+    const budgetValue = Number(e.currentTarget.form.budget.value);
+    if (!budgetValue || budgetValue === "0") return;
 
-    if (!e.currentTarget.form.budget.value) return;
+    setBudget(budgetValue.toFixed(2));
   };
 
   const handleSetHaveSpent = useCallback(
     (e) => {
       e.preventDefault();
+      const itemValue = Number(e.currentTarget.form.itemCost.value);
+      const itemName = e.currentTarget.form.itemName.value;
       const newItem = {
-        cost: Number(e.currentTarget.form.itemCost.value).toFixed(2),
-        name: e.currentTarget.form.itemName.value,
+        cost: itemValue.toFixed(2),
+        name: itemName,
       };
 
-      if (
-        !e.currentTarget.form.itemCost.value ||
-        !e.currentTarget.form.itemName.value
-      )
-        return;
+      if (!itemValue || !itemName) return;
 
       setHaveSpent(haveSpent.concat([newItem]));
     },
     [haveSpent]
   );
 
-  function deleteItem() {
-    return haveSpent + budget;
-  }
+  function deleteItem() {}
 
   return (
     <div className="main-app">
@@ -70,7 +67,7 @@ function ItemList({ haveSpent, deleteItem }) {
         return (
           <div className="items" key={item.name + index}>
             <p className="p">
-              {item.name}: ${item.cost}
+              {index + 1}. {item.name}: ${item.cost}
             </p>
             <button onClick={deleteItem} className="close">
               &times;
