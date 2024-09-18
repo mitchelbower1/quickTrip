@@ -8,6 +8,7 @@ html {
 }
 
 body {
+  background-color: #287428;
   height: 100vh;
   width: 100vw;
   /* color: #495057; */
@@ -39,8 +40,9 @@ body {
 h1 {
   font-family: "kiona";
   font-size: 55px;
-  margin-top: 0px;
+  margin-top: -70px;
   margin-bottom: 30px;
+  color: whitesmoke;
 }
 
 .main-content {
@@ -49,6 +51,7 @@ h1 {
   justify-content: space-around;
   align-items: center;
   width: 85vw;
+  position: static;
 }
 
 .set-budget-form {
@@ -62,7 +65,7 @@ h1 {
   width: 50vw;
   height: 515px;
   background-color: #57d156;
-  filter: drop-shadow(5px 5px 25px #000000);
+  filter: drop-shadow(2px 2px 10px #000000);
 }
 
 .form {
@@ -115,9 +118,17 @@ input {
   border: none;
 }
 
+.set-button:active {
+  background-color: #16f528;
+}
+
+.update-button:active {
+  background-color: #16f528;
+}
+
 button:hover {
   background-color: #9ef1a7;
-  transition: background-color 0.5s;
+  transition: background-color 0.4s;
 }
 
 button {
@@ -126,7 +137,7 @@ button {
   border-radius: 5px;
   font-size: 16px;
   font-weight: bolder;
-  transition: background-color 0.5s;
+  transition: background-color 0.4s;
 }
 
 .red {
@@ -141,9 +152,24 @@ button {
   width: 30%;
   overflow-y: auto;
   margin-top: 10px;
-  max-height: 180px;
+  max-height: 120px;
   scrollbar-gutter: stable;
   border-radius: 10px;
+  position: static;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  margin-left: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #3b3b3b;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
 .items {
@@ -154,8 +180,13 @@ button {
   justify-content: space-between;
   border-radius: 5px;
   padding: 7px;
-  margin-top: 12px;
+  margin-bottom: 12px;
   margin-left: 5px;
+  margin-right: 4px;
+}
+
+.p {
+  font-weight: bold;
 }
 
 .close {
