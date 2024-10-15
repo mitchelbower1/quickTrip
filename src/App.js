@@ -23,6 +23,15 @@ export default function App() {
     setBudget(budgetValue.toFixed(2));
   };
 
+  // remove item from itemList function
+  const deleteItem = (index) => {
+    // Create a new array without the item to be deleted
+    const newItems = haveSpent.filter((_, i) => i !== index);
+
+    // alert(`are you sure you want to delete  ?`);
+    setHaveSpent(newItems);
+  };
+
   const handleSetHaveSpent = useCallback(
     (e) => {
       e.preventDefault();
@@ -39,8 +48,7 @@ export default function App() {
     },
     [haveSpent]
   );
-
-  function deleteItem() {}
+  console.log(haveSpent[0]);
 
   return (
     <div className="main-app">
@@ -53,7 +61,11 @@ export default function App() {
           onSetBudget={handleSetBudget}
           onSetHaveSpent={handleSetHaveSpent}
         />
-        <ItemList haveSpent={haveSpent} deleteItem={deleteItem} />
+        <ItemList
+          onSetHaveSpent={handleSetHaveSpent}
+          haveSpent={haveSpent}
+          deleteItem={deleteItem}
+        />
       </div>
     </div>
   );
@@ -69,7 +81,11 @@ function ItemList({ haveSpent, deleteItem }) {
             <p className="p">
               {index + 1}. {item.name}: ${item.cost}
             </p>
-            <button onClick={deleteItem} className="close">
+            <button
+              key={index}
+              onClick={() => deleteItem(index)}
+              className="close"
+            >
               &times;
             </button>
           </div>
