@@ -24,13 +24,13 @@ export default function App() {
   };
 
   // remove item from itemList function
-  const deleteItem = (index) => {
-    // Create a new array without the item to be deleted
-    const newItems = haveSpent.filter((_, i) => i !== index);
-
-    // alert(`are you sure you want to delete  ?`);
-    setHaveSpent(newItems);
-  };
+  const deleteItem = useCallback(
+    (index) => {
+      // Create a new array without the item to be deleted
+      setHaveSpent(structuredClone(haveSpent).filter((_, i) => i !== index));
+    },
+    [haveSpent]
+  );
 
   const handleSetHaveSpent = useCallback(
     (e) => {

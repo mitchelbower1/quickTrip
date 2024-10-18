@@ -16,15 +16,7 @@ body {
   justify-content: center;
   flex-direction: column;
   margin: 0;
-}
-
-.main-app {
-  display: flex;
-  justify-content: left;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  padding: 0;
 }
 
 .header {
@@ -39,18 +31,26 @@ body {
 h1 {
   font-family: "kiona";
   font-size: 55px;
-  margin-top: -70px;
-  margin-bottom: 30px;
+  margin-top: -90px;
+  margin-bottom: 90px;
   color: whitesmoke;
+}
+
+.main-app {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
 }
 
 .main-content {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  width: 85vw;
-  position: static;
+  width: 98vw;
 }
 
 .set-budget-form {
@@ -59,11 +59,12 @@ h1 {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
   border-radius: 10px;
-  padding: 10px;
-  width: 50vw;
+  /* padding: 10px; */
+  width: 30vw;
   height: 400px;
-  background-color: #57d156;
+  /* background-color: #57d156; */
   filter: drop-shadow(2px 2px 10px #000000);
 }
 
@@ -72,13 +73,7 @@ h1 {
   justify-content: left;
   align-items: center;
   flex-direction: column;
-}
-
-#p {
-  font-size: 60px;
-  font-weight: bolder;
-  margin-top: 10px;
-  margin-bottom: 130px;
+  margin-bottom: 20px;
 }
 
 label {
@@ -89,15 +84,44 @@ label {
 }
 
 input {
-  padding: 4px;
+  margin-bottom: 10px;
+  padding: 2px;
   font-size: 16px;
   font-weight: bold;
-  width: 300px;
+  width: 280px;
+  height: 45px;
   font-family: "kiona";
 }
 
 .spent-input {
-  margin-bottom: 10%;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.item-list {
+  display: flex;
+  left: 64vw;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-direction: column;
+  width: 35vw;
+  overflow-y: auto;
+  /* margin-top: 10px; */
+  max-height: 470px;
+  scrollbar-gutter: stable;
+  border-radius: 10px;
+  position: absolute;
+}
+
+#p {
+  font-size: 60px;
+  font-weight: bolder;
+  margin-top: -20px;
+  margin-bottom: 80px;
+}
+
+.spent-input {
+  margin-bottom: 20px;
 }
 
 .set-button {
@@ -110,11 +134,13 @@ input {
 }
 
 .update-button {
-  margin-top: 10px;
+  margin-top: 30px;
   width: 220px;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 25px;
   border: none;
+  font-size: 22px;
+  font-weight: 200px;
 }
 
 .set-button:active {
@@ -132,29 +158,19 @@ button:hover {
 
 button {
   font-family: "kiona";
-  padding: 5px;
+  padding: 9px;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bolder;
   transition: background-color 0.4s;
 }
 
-.red {
-  color: red;
+#hidden {
+  display: none;
 }
 
-.green {
-  color: green;
-}
-
-.item-list {
-  width: 35%;
-  overflow-y: auto;
-  margin-top: 10px;
-  max-height: 250px;
-  scrollbar-gutter: stable;
-  border-radius: 10px;
-  position: static;
+.hidden {
+  display: none;
 }
 
 ::-webkit-scrollbar {
@@ -182,6 +198,7 @@ button {
   margin-bottom: 12px;
   margin-left: 5px;
   margin-right: 4px;
+  filter: drop-shadow(5px 2px 5px #000000);
 }
 
 .p {
@@ -201,10 +218,211 @@ button {
   position: static;
 }
 
-#hidden {
-  display: none;
-}
+@media screen and (max-width: 600px) {
+  body {
+    background-color: #287428;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+  }
 
-.hidden {
-  display: none;
+  .main-app {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    top: 0;
+  }
+
+  h1 {
+    font-family: "kiona";
+    font-size: 55px;
+    margin-top: -70px;
+    margin-bottom: 30px;
+    color: whitesmoke;
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 85vw;
+    position: static;
+  }
+
+  .set-budget-form {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80vw;
+    height: 400px;
+    background-color: #57d156;
+    filter: drop-shadow(2px 2px 10px #000000);
+  }
+
+  .form {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  #p {
+    font-size: 60px;
+    font-weight: bolder;
+    margin-top: -20px;
+    margin-bottom: 80px;
+  }
+
+  label {
+    padding: 10px;
+    display: flex;
+    justify-content: left;
+    font-weight: bold;
+  }
+
+  input {
+    margin-bottom: 10px;
+    padding: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 250px;
+    height: 45px;
+    font-family: "kiona";
+  }
+
+  .spent-input {
+    margin-bottom: 20px;
+  }
+
+  .set-button {
+    margin-bottom: 70px;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    width: 120px;
+    border: none;
+  }
+
+  .update-button {
+    margin-top: 30px;
+    width: 220px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    font-size: 22px;
+    font-weight: 200px;
+  }
+
+  .set-button:active {
+    background-color: #16f528;
+  }
+
+  .update-button:active {
+    background-color: #16f528;
+  }
+
+  button:hover {
+    background-color: #9ef1a7;
+    transition: background-color 0.4s;
+  }
+
+  button {
+    font-family: "kiona";
+    padding: 9px;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: bolder;
+    transition: background-color 0.4s;
+  }
+
+  .red {
+    color: red;
+  }
+
+  .green {
+    color: green;
+  }
+
+  .item-list {
+    width: 75vw;
+    overflow-y: auto;
+    margin-top: 10px;
+    max-height: 250px;
+    scrollbar-gutter: stable;
+    border-radius: 10px;
+    position: static;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    margin-left: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #3b3b3b;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .items {
+    background-color: #57d156;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 7px;
+    margin-bottom: 12px;
+    margin-left: 5px;
+    margin-right: 4px;
+  }
+
+  .p {
+    font-weight: bold;
+  }
+
+  .close:active {
+    background-color: #16f528;
+  }
+
+  .close {
+    font-weight: bolder;
+    font-size: 30px;
+    background: none;
+    border: none;
+    padding: 8px;
+    position: static;
+  }
+
+  #hidden {
+    display: none;
+  }
+
+  .hidden {
+    display: none;
+  }
 }
