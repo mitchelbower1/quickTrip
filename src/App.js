@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import TitleBar from "./components/TitleBar";
 import SetBudgetForm from "./components/SetBudgetForm";
+import ItemList from "./components/ItemList";
 // import "./fonts.css";
 
 export default function App() {
@@ -73,27 +74,3 @@ export default function App() {
     </div>
   );
 }
-
-const ItemList = ({ haveSpent, deleteItem }) => {
-  return (
-    <div className="item-list">
-      <br />
-      {haveSpent.map((item, index) => {
-        return (
-          <div className="items" key={item.name + index}>
-            <p className="p">
-              {index + 1}. {item.name}: ${item.cost}
-            </p>
-            <button
-              key={index}
-              onClick={() => deleteItem(index)}
-              className="close"
-            >
-              &times;
-            </button>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
