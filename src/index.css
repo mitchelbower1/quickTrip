@@ -26,7 +26,7 @@ body {
   align-items: center;
   width: 100vw;
   /* background-color: white; */
-  margin: 0;
+  margin: 20px;
 }
 
 h1 {
@@ -50,18 +50,19 @@ h1 {
   justify-content: space-between;
   align-items: center;
   width: 98vw;
+  height: auto;
 }
 
 .set-budget-form {
   display: flex;
-  padding: 10px;
+  /* padding: 10px; */
   align-items: center;
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
   border-radius: 10px;
   /* padding: 10px; */
-  width: 30vw;
+  width: 35vw;
   height: 400px;
   /* background-color: #57d156; */
 }
@@ -218,16 +219,9 @@ button {
   position: static;
 }
 
-/* footer {
-  width: 100vw;
-  height: 165px;
-  background-color: white;
-  bottom: 0;
-} */
-
 @media screen and (max-width: 600px) {
   body {
-    background-color: #287428;
+    background-color: #168d16;
     height: 100vh;
     width: 100vw;
     display: flex;
