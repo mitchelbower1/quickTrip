@@ -18,7 +18,9 @@ export default function App() {
   const handleSetBudget = (e) => {
     e.preventDefault();
     const budgetValue = Number(e.currentTarget.form.budget.value);
-    if (!budgetValue || budgetValue === "0") return;
+    if (!budgetValue || budgetValue === "0") {
+      return;
+    }
 
     setBudget(budgetValue.toFixed(2));
   };
@@ -67,11 +69,12 @@ export default function App() {
           deleteItem={deleteItem}
         />
       </div>
+      <footer></footer>
     </div>
   );
 }
 
-function ItemList({ haveSpent, deleteItem }) {
+const ItemList = ({ haveSpent, deleteItem }) => {
   return (
     <div className="item-list">
       <br />
@@ -93,4 +96,4 @@ function ItemList({ haveSpent, deleteItem }) {
       })}
     </div>
   );
-}
+};
