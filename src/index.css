@@ -189,9 +189,9 @@ button {
   scrollbar-gutter: stable;
   border-radius: 10px;
   padding: 10px;
-  position: absolute;
-  background-color: #22334d;
-  filter: drop-shadow(-2px -2px 11px #6d6969);
+  position: static;
+  background-color: #0e1a2c;
+  /* filter: drop-shadow(-2px -2px 11px #6d6969); */
 }
 
 .items {
@@ -284,6 +284,9 @@ button {
     padding: 10px;
     width: 80vw;
     height: 55vh;
+    position: relative;
+    margin-right: 16px;
+    margin-left: 0.5px;
     background-color: #22334d;
     filter: drop-shadow(-2px -2px 11px #6d6969);
   }
@@ -391,12 +394,12 @@ button {
     flex-direction: row;
     justify-content: center;
     width: 70vw;
-    height: 19vh;
+    height: 20vh;
     overflow-y: scroll;
     max-height: 170px;
     scrollbar-gutter: stable;
     position: static;
-    padding: 0px;
+    padding: 8 px;
     margin: 18px;
   }
 
@@ -407,7 +410,7 @@ button {
 
   ::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: #3b3b3b;
+    background-color: whitesmoke;
   }
 
   ::-webkit-scrollbar-track {
