@@ -1,6 +1,12 @@
 import React from "react";
 
-const SetBudgetForm = ({ remainder, onSetBudget, onSetHaveSpent, budget }) => {
+const SetBudgetForm = ({
+  remainder,
+  onSetBudget,
+  onSetHaveSpent,
+  budget,
+  onHandleReset,
+}) => {
   return (
     <div className="set-budget-form">
       <p id={budget === 0 ? "hidden" : "p"}>${remainder}</p>
@@ -37,14 +43,7 @@ const SetBudgetForm = ({ remainder, onSetBudget, onSetHaveSpent, budget }) => {
         >
           Update
         </button>
-        {/* <label>Ammount remaining:</label>
-        <input
-          className="remainder-field"
-          type="text"
-          value={remainder}
-          disabled
-          // className={haveSpent > budget ? "red" : "green"}
-        /> */}
+        <button onClick={onHandleReset}>Reset</button>
       </form>
     </div>
   );

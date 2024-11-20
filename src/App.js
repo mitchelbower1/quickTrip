@@ -1,12 +1,15 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useEffect, useState } from "react";
 import TitleBar from "./components/TitleBar";
 import SetBudgetForm from "./components/SetBudgetForm";
 import ItemList from "./components/ItemList";
 // import "./fonts.css";
 
 export default function App() {
-  const [budget, setBudget] = useState(0);
-  const [haveSpent, setHaveSpent] = useState([]);
+  const storedHaveSpent = JSON.parse(localStorage.getItem("spent"));
+  const storedSpentBudget = JSON.parse(localStorage.getItem("budget"));
+
+  const [budget, setBudget] = useState(storedSpentBudget);
+  const [haveSpent, setHaveSpent] = useState(storedHaveSpent);
 
   const remainder = useMemo(() => {
     const totalSpent = haveSpent.reduce(
@@ -15,6 +18,11 @@ export default function App() {
     );
     return (Number(budget) - totalSpent).toFixed(2);
   }, [budget, haveSpent]);
+
+  const handleReset = () => {
+    setBudget(0);
+    setHaveSpent([]);
+  };
 
   const handleSetBudget = (e) => {
     e.preventDefault();
@@ -53,6 +61,11 @@ export default function App() {
   );
   console.log(haveSpent[0]);
 
+  useEffect(() => {
+    localStorage.setItem("spent", JSON.stringify(haveSpent));
+    localStorage.setItem("budget", JSON.stringify(budget));
+  }, [haveSpent, budget]);
+
   return (
     <div className="main-app">
       <TitleBar />
@@ -63,6 +76,7 @@ export default function App() {
           haveSpent={haveSpent}
           onSetBudget={handleSetBudget}
           onSetHaveSpent={handleSetHaveSpent}
+          onHandleReset={handleReset}
         />
         <ItemList
           onSetHaveSpent={handleSetHaveSpent}
@@ -70,7 +84,17 @@ export default function App() {
           deleteItem={deleteItem}
         />
       </div>
-      <footer></footer>
+      <Footer />
     </div>
   );
 }
+
+const Footer = () => {
+  return (
+    <div>
+      <footer>
+        <p>Mitchel Bower 2024</p>
+      </footer>
+    </div>
+  );
+};
