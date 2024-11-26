@@ -1,4 +1,5 @@
 import React from "react";
+import { RxReset } from "react-icons/rx";
 
 const SetBudgetForm = ({
   remainder,
@@ -18,6 +19,7 @@ const SetBudgetForm = ({
           type="number"
           name="budget"
         />
+
         <button
           onClick={onSetBudget}
           className={budget > 0 ? "hidden" : "set-button"}
@@ -43,7 +45,9 @@ const SetBudgetForm = ({
         >
           Update
         </button>
-        <button onClick={onHandleReset}>Reset</button>
+        <button className="reset-button" onClick={onHandleReset}>
+          <RxReset />
+        </button>
       </form>
     </div>
   );

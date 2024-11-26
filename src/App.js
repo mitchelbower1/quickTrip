@@ -2,6 +2,8 @@ import { useCallback, useMemo, useEffect, useState } from "react";
 import TitleBar from "./components/TitleBar";
 import SetBudgetForm from "./components/SetBudgetForm";
 import ItemList from "./components/ItemList";
+import { DiReact } from "react-icons/di";
+
 // import "./fonts.css";
 
 export default function App() {
@@ -18,11 +20,6 @@ export default function App() {
     );
     return (Number(budget) - totalSpent).toFixed(2);
   }, [budget, haveSpent]);
-
-  const handleReset = () => {
-    setBudget(0);
-    setHaveSpent([]);
-  };
 
   const handleSetBudget = (e) => {
     e.preventDefault();
@@ -66,6 +63,15 @@ export default function App() {
     localStorage.setItem("budget", JSON.stringify(budget));
   }, [haveSpent, budget]);
 
+  const handleReset = () => {
+    if (window.confirm("Are you sure you want to erase all of your inputs?")) {
+      setBudget(0);
+      setHaveSpent([]);
+    } else {
+      return;
+    }
+  };
+
   return (
     <div className="main-app">
       <TitleBar />
@@ -94,6 +100,9 @@ const Footer = () => {
     <div>
       <footer>
         <p>Mitchel Bower 2024</p>
+        <p className="logo">
+          <DiReact />
+        </p>
       </footer>
     </div>
   );
