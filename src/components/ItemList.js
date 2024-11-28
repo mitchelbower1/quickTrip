@@ -2,7 +2,7 @@ const ItemList = ({ haveSpent, deleteItem }) => {
   return (
     <div className="item-list">
       <br />
-      {haveSpent.map((item, index) => {
+      {haveSpent?.map((item, index) => {
         return (
           <div className="items" key={item.name + index}>
             <p className="p">

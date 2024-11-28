@@ -14,7 +14,7 @@ export default function App() {
   const [haveSpent, setHaveSpent] = useState(storedHaveSpent);
 
   const remainder = useMemo(() => {
-    const totalSpent = haveSpent.reduce(
+    const totalSpent = haveSpent?.reduce(
       (acc, cur) => Number(acc) + Number(cur.cost),
       0
     );
@@ -56,7 +56,7 @@ export default function App() {
     },
     [haveSpent]
   );
-  console.log(haveSpent[0]);
+  // console.log(haveSpent[0]);
 
   useEffect(() => {
     localStorage.setItem("spent", JSON.stringify(haveSpent));
