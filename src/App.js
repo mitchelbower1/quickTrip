@@ -1,17 +1,23 @@
 import { useCallback, useMemo, useEffect, useState } from "react";
-import TitleBar from "./components/TitleBar";
-import SetBudgetForm from "./components/SetBudgetForm";
-import ItemList from "./components/ItemList";
-import { DiReact } from "react-icons/di";
+import TitleBar from "./components/title-bar/TitleBar";
+import SetBudgetForm from "./components/set-budget-form/SetBudgetForm";
+import ItemList from "./components/item-list/ItemList";
+import Footer from "./components/footer/Footer";
 
 // import "./fonts.css";
 
 export default function App() {
-  const storedHaveSpent = JSON.parse(localStorage.getItem("spent"));
-  const storedSpentBudget = JSON.parse(localStorage.getItem("budget"));
+  const [budget, setBudget] = useState("");
+  const [haveSpent, setHaveSpent] = useState([]);
 
-  const [budget, setBudget] = useState(storedSpentBudget);
-  const [haveSpent, setHaveSpent] = useState(storedHaveSpent);
+  // retrieves local storage states
+  useEffect(() => {
+    const haveSpentRes = localStorage.getItem("spent");
+    const budgetRes = localStorage.getItem("budget");
+
+    if (budgetRes) setBudget(JSON.parse(budgetRes));
+    if (haveSpentRes) setHaveSpent(JSON.parse(haveSpentRes));
+  }, []);
 
   const remainder = useMemo(() => {
     const totalSpent = haveSpent?.reduce(
@@ -28,7 +34,11 @@ export default function App() {
       return;
     }
 
-    setBudget(budgetValue.toFixed(2));
+    const setNewBudgetRes = budgetValue.toFixed(2);
+
+    localStorage.setItem("budget", JSON.stringify(setNewBudgetRes));
+
+    setBudget(setNewBudgetRes);
   };
 
   // remove item from itemList function
@@ -51,22 +61,23 @@ export default function App() {
       };
 
       if (!itemValue || !itemName) return;
+      console.log(haveSpent);
 
-      setHaveSpent(haveSpent.concat([newItem]));
+      const newHaveSpent = haveSpent.concat([newItem]);
+
+      localStorage.setItem("spent", JSON.stringify(newHaveSpent));
+
+      setHaveSpent(newHaveSpent);
     },
     [haveSpent]
   );
-  // console.log(haveSpent[0]);
-
-  useEffect(() => {
-    localStorage.setItem("spent", JSON.stringify(haveSpent));
-    localStorage.setItem("budget", JSON.stringify(budget));
-  }, [haveSpent, budget]);
 
   const handleReset = () => {
     if (window.confirm("Are you sure you want to erase all of your inputs?")) {
       setBudget(0);
       setHaveSpent([]);
+      localStorage.removeItem("budget");
+      localStorage.removeItem("spent");
     } else {
       return;
     }
@@ -94,16 +105,3 @@ export default function App() {
     </div>
   );
 }
-
-const Footer = () => {
-  return (
-    <div>
-      <footer>
-        <p>Mitchel Bower 2024</p>
-        <p className="logo">
-          <DiReact />
-        </p>
-      </footer>
-    </div>
-  );
-};

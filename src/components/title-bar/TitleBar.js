@@ -1,10 +1,11 @@
 import React from "react";
+import TitleBarStyles from "./TitleBarStyles";
 
 function TitleBar() {
   return (
-    <div className="header">
+    <TitleBarStyles>
       <h1>QuickTrip</h1>
-    </div>
+    </TitleBarStyles>
   );
 }
 

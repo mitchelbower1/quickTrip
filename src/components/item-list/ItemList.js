@@ -1,6 +1,8 @@
+import ItemListStyles from "./ItemListSyles";
+
 const ItemList = ({ haveSpent, deleteItem }) => {
   return (
-    <div className="item-list">
+    <ItemListStyles>
       <br />
       {haveSpent?.map((item, index) => {
         return (
@@ -18,7 +20,7 @@ const ItemList = ({ haveSpent, deleteItem }) => {
           </div>
         );
       })}
-    </div>
+    </ItemListStyles>
   );
 };
 
