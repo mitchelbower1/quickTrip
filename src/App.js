@@ -78,6 +78,7 @@ export default function App() {
       setHaveSpent([]);
       localStorage.removeItem("budget");
       localStorage.removeItem("spent");
+      window.location.reload();
     } else {
       return;
     }

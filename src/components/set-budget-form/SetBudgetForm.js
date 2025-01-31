@@ -16,7 +16,6 @@ const SetBudgetForm = ({
         <input
           className={budget > 0 ? "hidden" : ""}
           placeholder="Set a budget..."
-          // className={haveSpent > budget ? "negative" : "green"}
           type="number"
           name="budget"
         />
@@ -41,7 +40,7 @@ const SetBudgetForm = ({
           placeholder="What did you spend it on?"
         />
         <button
-          className={budget === 0 ? "hidden" : "update-button"}
+          className={budget === "" ? "hidden" : "update-button"}
           onClick={onSetHaveSpent}
         >
           Update
