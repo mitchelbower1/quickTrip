@@ -11,7 +11,9 @@ const SetBudgetForm = ({
 }) => {
   return (
     <SetBudgetFormstyles>
-      <p id={!budget ? "hidden" : "p"}>${remainder}</p>
+      <span id={!budget ? "hidden" : "span"}>
+        <p className={remainder > 0 ? "positive" : "negative"}>${remainder}</p>
+      </span>
       <form className="form">
         <input
           className={budget > 0 ? "hidden" : ""}

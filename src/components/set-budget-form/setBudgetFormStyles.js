@@ -62,13 +62,21 @@ const SetBudgetFormstyles = styled.div`
     margin-top: 10px;
   }
 
-  #p {
+  #span {
     font-size: 70px;
     color: whitesmoke;
     font-weight: bolder;
     margin-top: -5px;
     margin-bottom: 60px;
   }
+
+  /* #p {
+    font-size: 70px;
+    color: whitesmoke;
+    font-weight: bolder;
+    margin-top: -5px;
+    margin-bottom: 60px;
+  } */
 
   .spent-input {
     margin-bottom: 20px;
@@ -98,6 +106,13 @@ const SetBudgetFormstyles = styled.div`
 
     &:active {
       background-color: #7c7c7c;
+    }
+    .positive {
+      background-color: green;
+    }
+
+    .negative {
+      color: red;
     }
   }
 
