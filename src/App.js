@@ -3,6 +3,7 @@ import TitleBar from "./components/title-bar/TitleBar";
 import SetBudgetForm from "./components/set-budget-form/SetBudgetForm";
 import ItemList from "./components/item-list/ItemList";
 import Footer from "./components/footer/Footer";
+import BasicModal from "./components/Modal.js/Modal";
 
 // import "./fonts.css";
 

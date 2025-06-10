@@ -1,6 +1,6 @@
 import React from "react";
-import { RxReset } from "react-icons/rx";
 import SetBudgetFormstyles from "./setBudgetFormStyles";
+import BasicModal from "../Modal.js/Modal";
 
 const SetBudgetForm = ({
   remainder,
@@ -49,7 +49,7 @@ const SetBudgetForm = ({
         </button>
       </form>
       <button className="reset-button" onClick={onHandleReset}>
-        <RxReset />
+        <BasicModal />
       </button>
     </SetBudgetFormstyles>
   );
