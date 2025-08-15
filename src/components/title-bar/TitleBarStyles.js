@@ -6,8 +6,8 @@ const TitleBarStyles = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  margin: 20px;
+  width: 100%;
+  margin-top: 20px;
 
   h1 {
     font-family: "kiona";
@@ -27,7 +27,7 @@ const TitleBarStyles = styled.header`
 
   h1 {
     font-family: "kiona";
-    font-size: 65px;
+    font-size: 60px;
     margin-bottom: 10px;
     color: whitesmoke;
     margin-top: 0px;

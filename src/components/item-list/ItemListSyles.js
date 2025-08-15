@@ -7,9 +7,9 @@ const ItemListStyles = styled.div`
   justify-content: space-between;
   align-items: right;
   flex-direction: column;
-  width: 30vw;
+  width: 32vw;
   overflow-y: auto;
-  margin-right: 10vw;
+  /* margin-right: 5vw; */
   max-height: 400px;
   scrollbar-gutter: stable;
   border-radius: 10px;
@@ -61,9 +61,9 @@ const ItemListStyles = styled.div`
     flex-direction: row;
     justify-content: center;
     width: 70vw;
-    height: 16vh;
+    height: 19vh;
     overflow-y: scroll;
-    max-height: 170px;
+    max-height: 190px;
     scrollbar-gutter: stable;
     position: static;
     padding: 8 px;

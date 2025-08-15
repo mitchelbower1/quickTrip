@@ -7,12 +7,12 @@ const SetBudgetFormstyles = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   border-radius: 10px;
-  margin-left: 10vw;
+  /* margin-left: 5vw; */
   padding: 10px;
-  width: 30vw;
-  height: 400px;
+  width: 32vw;
+  height: 420px;
   background-color: #22334d;
   position: relative;
 
@@ -21,11 +21,25 @@ const SetBudgetFormstyles = styled.div`
     justify-content: left;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     position: static;
   }
 
   .reset-button {
+    padding: 4px;
+    border-radius: 55px;
+    font-size: small;
+    color: whitesmoke;
+    background-color: #22334d;
+    margin-top: 10px;
+    margin-right: 10px;
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    top: 0;
   }
 
   label {
@@ -68,6 +82,14 @@ const SetBudgetFormstyles = styled.div`
     margin-bottom: 60px;
   } */
 
+  .positive {
+    color: #32cd32;
+  }
+
+  .negative {
+    color: #ff000d;
+  }
+
   .spent-input {
     margin-bottom: 20px;
   }
@@ -97,16 +119,11 @@ const SetBudgetFormstyles = styled.div`
     &:active {
       background-color: #7c7c7c;
     }
-    .positive {
-      background-color: green;
-    }
-
-    .negative {
-      color: red;
-    }
   }
 
+  /*********************************************************/
   @media ${breakpoints.mobile} {
+    /*********************************************************/
     display: flex;
     padding: 10px;
     align-items: center;
@@ -114,7 +131,7 @@ const SetBudgetFormstyles = styled.div`
     justify-content: center;
     border-radius: 10px;
     padding: 10px;
-    width: 75vw;
+    width: 88vw;
     height: 55vh;
     position: relative;
     margin-right: 16px;
@@ -164,9 +181,25 @@ const SetBudgetFormstyles = styled.div`
       padding: 5px 10px;
       outline: none;
       margin-bottom: 10px;
-      font-size: 16px;
+      font-size: 19px;
       font-weight: bold;
-      width: 60vw;
+      width: 70vw;
+      height: 45px;
+      background-color: #22334d;
+      font-family: "kiona";
+      color: whitesmoke;
+      text-decoration: whitesmoke;
+    }
+
+    #set-input {
+      border: none;
+      border-bottom: 3px solid whitesmoke;
+      padding: 5px 10px;
+      outline: none;
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: bolder;
+      width: 70vw;
       height: 45px;
       background-color: #22334d;
       font-family: "kiona";
@@ -199,6 +232,72 @@ const SetBudgetFormstyles = styled.div`
       border: none;
       font-size: 22px;
       font-weight: 200px;
+    }
+  }
+  @media (max-width: 615px) and (max-height: 740px) {
+    .form {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    p {
+      font-size: 50px;
+      margin-bottom: -40px;
+      margin-top: 10px;
+    }
+    .reset-button {
+      padding: 1px;
+      border-radius: 25px;
+      font-size: 4px;
+      background-color: #22334d;
+      margin-top: 10px;
+      margin-right: 5px;
+      position: fixed;
+      right: 0;
+      top: 0;
+    }
+
+    #set-input {
+      border: none;
+      border-bottom: 3px solid whitesmoke;
+      padding: 3px 3px;
+      outline: none;
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: bolder;
+      width: 35vw;
+      height: 35px;
+      background-color: #22334d;
+      font-family: "kiona";
+      color: whitesmoke;
+      text-decoration: whitesmoke;
+    }
+
+    .set-button {
+      margin-bottom: 50px;
+      padding: 6px;
+      border-radius: 50px;
+      margin-top: 10px;
+      width: 120px;
+      border: none;
+    }
+
+    input {
+      border: none;
+      border-bottom: 3px solid whitesmoke;
+      padding: 5px 10px;
+      outline: none;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      width: 80vw;
+      height: 45px;
+      background-color: #22334d;
+      font-family: "kiona";
+      color: whitesmoke;
+      text-decoration: whitesmoke;
     }
   }
 `;

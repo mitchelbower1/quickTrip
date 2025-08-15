@@ -8,6 +8,8 @@ const SetBudgetForm = ({
   onSetHaveSpent,
   budget,
   onHandleReset,
+  setBudget,
+  setHaveSpent,
 }) => {
   return (
     <SetBudgetFormstyles>
@@ -16,6 +18,7 @@ const SetBudgetForm = ({
       </span>
       <form className="form">
         <input
+          id="set-input"
           className={budget > 0 ? "hidden" : ""}
           placeholder="Set a budget..."
           type="number"
@@ -49,7 +52,11 @@ const SetBudgetForm = ({
         </button>
       </form>
       <button className="reset-button" onClick={onHandleReset}>
-        <BasicModal />
+        <BasicModal
+          // handleReset={onHandleReset}
+          setBudget={setBudget}
+          setHaveSpent={setHaveSpent}
+        />
       </button>
     </SetBudgetFormstyles>
   );

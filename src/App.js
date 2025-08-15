@@ -3,7 +3,7 @@ import TitleBar from "./components/title-bar/TitleBar";
 import SetBudgetForm from "./components/set-budget-form/SetBudgetForm";
 import ItemList from "./components/item-list/ItemList";
 import Footer from "./components/footer/Footer";
-import BasicModal from "./components/Modal.js/Modal";
+// import BasicModal from "./components/Modal.js/Modal";
 
 // import "./fonts.css";
 
@@ -73,18 +73,6 @@ export default function App() {
     [haveSpent]
   );
 
-  const handleReset = () => {
-    if (window.confirm("Are you sure you want to erase all of your inputs?")) {
-      setBudget(0);
-      setHaveSpent([]);
-      localStorage.removeItem("budget");
-      localStorage.removeItem("spent");
-      window.location.reload();
-    } else {
-      return;
-    }
-  };
-
   return (
     <div className="main-app">
       <TitleBar />
@@ -95,7 +83,8 @@ export default function App() {
           haveSpent={haveSpent}
           onSetBudget={handleSetBudget}
           onSetHaveSpent={handleSetHaveSpent}
-          onHandleReset={handleReset}
+          setBudget={setBudget}
+          setHaveSpent={setHaveSpent}
         />
         <ItemList
           onSetHaveSpent={handleSetHaveSpent}
