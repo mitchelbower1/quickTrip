@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/quickTrip/static/css/main.0e853049.css",
+    "main.js": "/quickTrip/static/js/main.7ccaf1ef.js",
+    "static/media/Kiona-Regular.ttf": "/quickTrip/static/media/Kiona-Regular.743f23a1f47a941862f5.ttf",
+    "index.html": "/quickTrip/index.html",
+    "main.0e853049.css.map": "/quickTrip/static/css/main.0e853049.css.map",
+    "main.7ccaf1ef.js.map": "/quickTrip/static/js/main.7ccaf1ef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e853049.css",
+    "static/js/main.7ccaf1ef.js"
+  ]
+}
