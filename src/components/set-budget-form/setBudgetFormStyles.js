@@ -3,16 +3,13 @@ import breakpoints from "../../vars/breakpoints";
 
 const SetBudgetFormstyles = styled.div`
   display: flex;
-  /* filter: drop-shadow(-0.5px -1px 5px #6d6969); */
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  /* flex-wrap: wrap; */
   border-radius: 10px;
-  /* margin-left: 5vw; */
   padding: 10px;
   width: 32vw;
-  height: 420px;
+  height: 450px;
   background-color: #22334d;
   position: relative;
 
@@ -33,7 +30,6 @@ const SetBudgetFormstyles = styled.div`
     background-color: #22334d;
     margin-top: 10px;
     margin-right: 10px;
-    /* position: absolute; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,6 +57,12 @@ const SetBudgetFormstyles = styled.div`
     border: none;
   }
 
+  .total-spent {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+
   .spent-input {
     margin-bottom: 20px;
     margin-top: 10px;
@@ -73,14 +75,6 @@ const SetBudgetFormstyles = styled.div`
     margin-top: -5px;
     margin-bottom: 60px;
   }
-
-  /* #p {
-    font-size: 70px;
-    color: whitesmoke;
-    font-weight: bolder;
-    margin-top: -5px;
-    margin-bottom: 60px;
-  } */
 
   .positive {
     color: #32cd32;
@@ -161,13 +155,6 @@ const SetBudgetFormstyles = styled.div`
       padding: 3px;
     }
 
-    #p {
-      font-size: 60px;
-      font-weight: bolder;
-      color: whitesmoke;
-      margin-bottom: 65px;
-    }
-
     label {
       padding: 10px;
       display: flex;
@@ -183,7 +170,7 @@ const SetBudgetFormstyles = styled.div`
       margin-bottom: 10px;
       font-size: 19px;
       font-weight: bold;
-      width: 70vw;
+      width: 65vw;
       height: 45px;
       background-color: #22334d;
       font-family: "kiona";
@@ -199,7 +186,7 @@ const SetBudgetFormstyles = styled.div`
       margin-bottom: 10px;
       font-size: 20px;
       font-weight: bolder;
-      width: 70vw;
+      width: 60vw;
       height: 45px;
       background-color: #22334d;
       font-family: "kiona";
@@ -265,7 +252,7 @@ const SetBudgetFormstyles = styled.div`
       padding: 3px 3px;
       outline: none;
       margin-bottom: 10px;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bolder;
       width: 35vw;
       height: 35px;

@@ -15,6 +15,9 @@ const SetBudgetForm = ({
     <SetBudgetFormstyles>
       <span id={!budget ? "hidden" : "span"}>
         <p className={remainder > 0 ? "positive" : "negative"}>${remainder}</p>
+        <p className="total-spent">
+          total ammt. spent: ${(budget - remainder).toFixed(2)}
+        </p>
       </span>
       <form className="form">
         <input

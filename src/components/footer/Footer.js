@@ -4,7 +4,7 @@ import FooterStyles from "./FooterStyles";
 const Footer = () => {
   return (
     <FooterStyles>
-      <p>Mitchel Bower 2024</p>
+      <p>Mitchel Bower 2025</p>
       <p className="logo">
         <DiReact />
       </p>

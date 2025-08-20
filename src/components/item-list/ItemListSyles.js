@@ -9,14 +9,12 @@ const ItemListStyles = styled.div`
   flex-direction: column;
   width: 32vw;
   overflow-y: auto;
-  /* margin-right: 5vw; */
-  max-height: 400px;
+  max-height: 418px;
   scrollbar-gutter: stable;
   border-radius: 10px;
   padding: 10px;
   position: static;
   background-color: #0e1a2c;
-  /* filter: drop-shadow(-2px -2px 11px #6d6969); */
 
   .items {
     background-color: #b7c0ce;
