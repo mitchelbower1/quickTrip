@@ -1,12 +1,15 @@
-import { useCallback, useMemo, useEffect, useState } from "react";
+import { useCallback, useMemo, useEffect, useState, useRef } from "react";
 import TitleBar from "./components/title-bar/TitleBar";
 import SetBudgetForm from "./components/set-budget-form/SetBudgetForm";
 import ItemList from "./components/item-list/ItemList";
 import Footer from "./components/footer/Footer";
+// import { useRef } from "react";
 
 export default function App() {
   const [budget, setBudget] = useState("");
   const [haveSpent, setHaveSpent] = useState([]);
+  const itemValueRef = useRef(null);
+  const itemNameRef = useRef(null);
 
   // retrieves local storage states
   useEffect(() => {
@@ -51,6 +54,7 @@ export default function App() {
   const handleSetHaveSpent = useCallback(
     (e) => {
       e.preventDefault();
+
       const itemValue = Number(e.currentTarget.form.itemCost.value);
       const itemName = e.currentTarget.form.itemName.value;
       const newItem = {
@@ -66,6 +70,14 @@ export default function App() {
       localStorage.setItem("spent", JSON.stringify(newHaveSpent));
 
       setHaveSpent(newHaveSpent);
+
+      if (itemValueRef.current) {
+        itemValueRef.current.value = "";
+      }
+
+      if (itemNameRef.current) {
+        itemNameRef.current.value = "";
+      }
     },
     [haveSpent]
   );
@@ -82,6 +94,8 @@ export default function App() {
           onSetHaveSpent={handleSetHaveSpent}
           setBudget={setBudget}
           setHaveSpent={setHaveSpent}
+          itemNameRef={itemNameRef}
+          itemValueRef={itemValueRef}
         />
         <ItemList
           onSetHaveSpent={handleSetHaveSpent}
