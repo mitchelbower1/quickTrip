@@ -1,6 +1,8 @@
 import React from "react";
+// import { useRef } from "react";
 import SetBudgetFormstyles from "./setBudgetFormStyles";
-import BasicModal from "../Modal.js/Modal";
+// import BasicModal from "../Modal.js/Modal";
+import BasicModal from "../Modal/Modal";
 
 const SetBudgetForm = ({
   remainder,
@@ -10,6 +12,8 @@ const SetBudgetForm = ({
   onHandleReset,
   setBudget,
   setHaveSpent,
+  itemValueRef,
+  itemNameRef,
 }) => {
   return (
     <SetBudgetFormstyles>
@@ -39,12 +43,14 @@ const SetBudgetForm = ({
           className="spent-input"
           type="number"
           name="itemCost"
+          ref={itemValueRef}
           placeholder="How much have you spent?"
         />
 
         <input
           type="text"
           name="itemName"
+          ref={itemNameRef}
           placeholder="What did you spend it on?"
         />
         <button
