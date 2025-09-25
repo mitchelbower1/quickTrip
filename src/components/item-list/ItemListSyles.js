@@ -51,6 +51,7 @@ const ItemListStyles = styled.div`
     border: none;
     padding: 8px;
     position: static;
+    cursor: pointer;
   }
 
   @media ${breakpoints.mobile} {
