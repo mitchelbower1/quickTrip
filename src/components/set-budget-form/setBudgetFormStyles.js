@@ -12,6 +12,7 @@ const SetBudgetFormstyles = styled.div`
   height: 450px;
   background-color: #22334d;
   position: relative;
+  filter: drop-shadow(5px 2px 5px #000000);
 
   .form {
     display: flex;

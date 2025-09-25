@@ -28,7 +28,11 @@ const ItemListStyles = styled.div`
     margin-left: 5px;
     margin-right: 12px;
     filter: drop-shadow(5px 2px 3px #000000);
-    transition-duration: 1s;
+  }
+
+  .items:hover {
+    background-color: #9abceeff;
+    transition: background-color 0.4s;
   }
 
   .p {
