@@ -3,32 +3,41 @@ name: Deploy QuickTrip
 
 on:
   push:
-    branches: [main] # Triggers when you push to main branch
-  pull_request:
-    branches: [main] # Triggers when PRs are made to main
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build-and-deploy: # Job name (you can change this)
-    runs-on: ubuntu-latest # Uses Ubuntu virtual machine
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3 # Downloads your repo code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3 # Installs Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: "18" # Specify Node version
-          cache: "npm" # Caches npm dependencies for faster builds
+          node-version: "18"
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm ci # npm ci is faster/more reliable than npm install
+        run: npm ci
 
       - name: Build
-        run: npm run build # Runs your build script
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3 # Third-party action for GH Pages
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Auto-provided by GitHub
-          publish_dir: ./build # Where your built files are located
+        id: deployment
+        uses: actions/deploy-pages@v2
